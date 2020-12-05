@@ -5,12 +5,13 @@ an ex alcoholic, ex baseball star who worked as a bartender.
 
 by iw!'''
 #################
-#
-# USER CONFIG
-#
-################
+# USER CONFIG   #
+#################
+token = "YOUR BOT'S API KEY"
+#################
+#END USER CONFIG#
+#################
 
-bot_token = 'YOUR DISCORD BOT TOKEN'
 import discord, pickle
 from datetime import date
 from datetime import datetime
@@ -77,11 +78,11 @@ if __name__ == '__main__':
 				setdate2 = current_date.strftime("%m-%d-%Y")
 			await message.channel.send('Sobriety date {} added for {}'.format(setdate, str(message.author).split('#')[0]))
 			addUser(str(message.author).split('#')[0], setdate, setdate2)
-	
-		if message.content.lower().startswith('$days'):
+
 			#################
 			# calculate how many days the user has been sober
-			################
+			################	
+		if message.content.lower().startswith('$days'):
 			try:
 				sober_date, days_sober = days(user)
 				if int(days_sober) == 1:
@@ -90,16 +91,28 @@ if __name__ == '__main__':
 					await message.channel.send('You are {} days sober. You have been sober since {}!'.format(days_sober, sober_date))
 			except KeyError:
 				await message.channel.send("I don't see you in the database, {}! Type: `$set` to be added.".format(user))
-	
-		if message.content.lower().startswith('$quit') or message.content.lower().startswith('$remove'):
+
 			#################
 			# remove the user from the database
-			################
+			################	
+		if message.content.lower().startswith('$quit') or message.content.lower().startswith('$remove'):
 			try: 
 				sober_date, days_sober = days(user)
 				remove(user)
 				await message.channel.send('Sorry to see you go, {}!'.format(user))
 			except KeyError:
 				await message.channel.send("I don't see you in the database, {}! Type: `$set` to be added.".format(user))
+			
+			###############
+			# Help Message
+			##############
+		if message.content.lower().startswith('$help'):
+			await message.channel.send('''Commands:
+			`$set [date]`  - begin tracking your sobriety. ex: `$set` or `$set 12/25/2020`
+			`$days` - show how many days you've been sober
+			`$quit` - stop tracking your sobriety / take a break.
+			`$help` - show this help message and exit'''.format(message.author))
+			
 	
-	client.run('')
+	
+	client.run(token)
