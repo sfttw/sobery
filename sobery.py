@@ -15,13 +15,13 @@ from datetime import datetime
 client = discord.Client()
 
 def database():
-	f = open('sam.db', 'rb')
+	f = open('sobery.db', 'rb')
 	db = pickle.load(f)
 	f.close()
 	return db
 
 def update(db):
-	f = open('sam.db', 'wb')
+	f = open('sobery.db', 'wb')
 	pickle.dump(db, f)
 	f.close()
 
