@@ -21,7 +21,6 @@ def update(db):
 	pickle.dump(db, f)
 	f.close()
 
-
 def addUser(user, start_time_of_sobriety):
 	db = database()
 	db[user] = start_time_of_sobriety
@@ -32,7 +31,6 @@ def days(user):
 	days_sober = (datetime.now() - db[user]).days
 	minutes_sober = int((datetime.now() - db[user]).total_seconds() / 60.0)
 	sober_date = db[user].strftime("%m-%d-%Y")
-
 	return sober_date, days_sober, minutes_sober
 
 def remove(user):
@@ -103,7 +101,5 @@ if __name__ == '__main__':
 				`time` - show how long you've been sober
 				`break` - stop tracking your sobriety / take a break.
 				`help` - show this help message and exit'''.format(message.author))
-				
-	
 	
 	client.run(token)
