@@ -1,14 +1,21 @@
 # Sobery
-Discord Bot for tracking sobriety. It uses a flat file database and requires `discord.py`
+Discord Bot for tracking sobriety.
+
+## Requirements
+
+[discord.py](https://pypi.org/project/discord.py/)
 
 ## Commands
-`$set [date]`  - begin tracking your sobriety. ex: `$set` or `$set 12/25/2020`
 
-`$days` - show how many days you've been sober
+Mention the bot to use the commands, e.g. `@sobery time`
 
-`$quit` - stop tracking your sobriety / take a break.
+`set [date]`  - begin tracking your sobriety. ex: `@sobery set` or `@sobery set 12/25/2020`
 
-`$help` - show this help message and exit
+`time` - show how long you've been sober
+
+`break` - stop tracking your sobriety / take a break.
+
+`help` - show this help message and exit
 
 ### Credits
 dkv
