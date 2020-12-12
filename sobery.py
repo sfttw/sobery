@@ -2,11 +2,7 @@
 '''Sobery is a discord bot for tracking sobriety. '''
 
 #################
-# USER CONFIG   #
-#################
 token = 'YOUR TOKEN HERE'
-#################
-#END USER CONFIG#
 #################
 
 import discord, pickle
@@ -57,22 +53,19 @@ if __name__ == '__main__':
 		if message.author == client.user:
 			return
 		if client.user.mentioned_in(message):	
+			# HELLO
 			if message.content.lower().split()[1] == 'hello':
 				await message.channel.send('¡Hola, {}!'.format(message.author))
-			
+			# WHOAMI
 			if message.content.lower().split()[1] == 'whoami':
 				await message.channel.send('I am {} AKA {}'.format(client.user, botnick))
 			
-			##################
-			#### ECHO
-			###################
+			# ECHO
 			if message.content.lower().split()[1] == 'echo':
 				await message.channel.send(str(message.content))
 		
 			if message.content.lower().split()[1] == 'set' or message.content.lower().split()[1] == '$reset':
-				############################
-				# add a user to the database
-				#############################
+			# ADD USER
 				setdate = '' #
 				
 				if len(message.content.split()) == 2:
@@ -81,11 +74,8 @@ if __name__ == '__main__':
 				else:
 					addUser(str(message.author), datetime.now())
 				await message.channel.send('Sobriety date {} added for {}'.format(setdate, str(message.author).split('#')[0]))
-				
-	
-			################
-			# Time Sober
-			################	
+
+			# TIME SOBER
 			if message.content.lower().split()[1] == 'time' or message.content.lower().split()[1] == 'info':
 				try:
 					sober_date, days_sober, minutes_sober = days(user)
@@ -97,9 +87,7 @@ if __name__ == '__main__':
 					await message.channel.send("I don't see you in the database, {}! Type: `$set` to be added.".format(user))
 					print(KeyError)
 	
-				#################
-				# remove the user from the database
-				################	
+			# REMOVE USER	
 			if message.content.lower().split()[1] == 'break' or message.content.lower().split()[1] == 'quit':
 				try: 
 					sober_date, days_sober = days(user)
@@ -108,9 +96,7 @@ if __name__ == '__main__':
 				except KeyError:
 					await message.channel.send("I don't see you in the database, {}! Type: `$set` to be added.".format(user))
 				
-				###############
-				# Help Message
-				##############
+			# HELP
 			if message.content.lower().split()[1] == 'help':
 				await message.channel.send('''Commands:
 				`set [date]`  - begin tracking your sobriety. ex: `$set` or `$set 12/25/2020`
