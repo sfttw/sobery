@@ -11,9 +11,11 @@ Mention the bot to use the commands, e.g. `@sobery time`
 
 `set [date]`  - begin tracking your sobriety. ex: `@sobery set` or `@sobery set 12/25/2020`
 
-`time` - show how long you've been sober
+`days` - show how long you've been sober
 
 `break` - stop tracking your sobriety / take a break.
+
+`leaderboard` - Shows a list of everyone in the database, ordered by days sober. 
 
 `help` - show this help message and exit
 
