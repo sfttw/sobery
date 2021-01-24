@@ -1,4 +1,4 @@
-# Sobery
+# SobrietyBot
 Discord Bot for tracking sobriety.
 
 ## Requirements
@@ -7,9 +7,9 @@ Discord Bot for tracking sobriety.
 
 ## Commands
 
-Mention the bot to use the commands, e.g. `@sobery time`
+Mention the bot to use the commands, e.g. `@sobrietybot time`
 
-`set [date]`  - begin tracking your sobriety. ex: `@sobery set` or `@sobery set 12/25/2020`
+`set [date]`  - begin tracking your sobriety. ex: `@sobrietybot set` or `@sobrietybot set 12/25/2020`
 
 `days` - show how long you've been sober
 
